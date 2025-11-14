@@ -32,7 +32,7 @@ export default function Projects() {
         'List and browse pets catalog',
         'Secure authentication system',
         'Real-time database with Firebase',
-        'Native Android experience',
+        'Native Android app experience',
         'Wishlist and favorites management',
       ],
     },
@@ -40,7 +40,7 @@ export default function Projects() {
       title: 'WanderWave Chatbot',
       description:
         'A travel-based recommendation chatbot developed for Zoho Cliqtrix 2024 competition. Provides personalized travel recommendations using AI and helps users plan their trips effectively.',
-      stack: ['React.js', 'AI/ML', 'API Integration'],
+      stack: ['HTML', 'CSS', 'JavaScript', 'AI/ML', 'API Integration'],
       github: 'https://github.com/Preveen369/WanderWave',
       demo: 'https://preveen369.github.io/WanderWave/',
       image: 'url(/src/assets/images/travel-chatbot.png)',
@@ -54,8 +54,8 @@ export default function Projects() {
     {
       title: 'Mini Store ERP',
       description:
-        'An enterprise resource planning system designed for small retail stores. Manages inventory, sales, and operations efficiently with an intuitive interface for streamlined business processes.',
-      stack: ['React.js', 'Node.js', 'Express', 'MongoDB'],
+        'An AI-based enterprise resource planning system designed for small retail stores. Manages inventory, sales, and operations efficiently with an intuitive interface for streamlined business processes.',
+      stack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'AI/ML'],
       github: 'https://github.com/Preveen369/Mini-Store-ERP',
       demo: 'https://mini-store-erp-app.onrender.com/',
       image: 'url(/src/assets/images/mini-store-shop.png)',
@@ -63,7 +63,7 @@ export default function Projects() {
         'Inventory management system',
         'Sales and transaction tracking',
         'Business analytics dashboard',
-        'User-friendly interface',
+        'User-friendly interface with AI assistant',
       ],
     },
   ];

@@ -45,32 +45,19 @@ export default function Skills() {
     {
       title: 'Soft Skills',
       skills: [
-        { name: 'Problem Solving', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codepen/codepen-original.svg' },
-        { name: 'Quick Learning', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg' },
-        { name: 'Team Collaboration', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg' },
-        { name: 'Agile Methodology', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg' },
+        { name: 'Problem Solving', icon: '/src/assets/icons/problem-solving.svg' },
+        { name: 'Quick Learning', icon: '/src/assets/icons/quick-learn.svg' },
+        { name: 'Team Work', icon: '/src/assets/icons/team-collaboration.svg' },
+        { name: 'Agile Method', icon: '/src/assets/icons/scrum.svg' },
       ],
       color: 'from-orange-500 to-red-500',
     },
   ];
 
-  const certifications = [
-    {
-      title: 'Java In-Depth: Become a Complete Java Engineer',
-      provider: 'Udemy',
-    },
-    {
-      title: 'JavaScript Programming Essentials',
-      provider: 'IBM & Coursera',
-    },
-    {
-      title: 'Career Essentials in Generative AI',
-      provider: 'Microsoft and LinkedIn',
-    },
-  ];
+
 
   return (
-    <section id="skills" className="min-h-screen pt-20 pb-16 px-4">
+    <section id="skills" className="min-h-screen pt-20 pb-8 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -129,27 +116,6 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="mt-16">
-          <h3 className="text-3xl font-bold text-center mb-8">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Certifications
-            </span>
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {certifications.map((cert, index) => (
-              <Card
-                key={index}
-                className="bg-slate-800/40 border-slate-700/50 hover:border-cyan-500/50 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 group"
-              >
-                <CardContent className="p-6">
-                  <div className="h-2 w-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mb-4 group-hover:w-full transition-all duration-300"></div>
-                  <h4 className="text-lg font-semibold text-white mb-2">{cert.title}</h4>
-                  <p className="text-sm text-slate-400">{cert.provider}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

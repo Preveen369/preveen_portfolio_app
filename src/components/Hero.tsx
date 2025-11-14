@@ -11,10 +11,16 @@ export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
     <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 pb-12 relative">
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-1 animate-fade-in">
-          <div className="inline-block p-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mb-6 shadow-lg shadow-blue-500/30">
+          <div className="inline-block p-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mb-5 shadow-lg shadow-blue-500/30">
             <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-full p-2">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-6xl font-bold text-blue-400 border border-blue-500/20">
-                PS
+              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-6xl font-bold text-blue-400 border border-blue-500/20 overflow-hidden">
+                <img 
+                  src="./src/assets/images/My_Avatar.jpg" 
+                  alt="Preveen S" 
+                  className="w-full h-full object-cover rounded-full"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
@@ -31,7 +37,7 @@ export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
             Software Developer
           </p>
           <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Full-Stack Developer crafting innovative solutions with MERN stack and modern technologies
+            Full-Stack Developer crafting innovative solutions with MERN stack and modern software technologies
           </p>
         </div>
 

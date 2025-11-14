@@ -14,6 +14,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
+    { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -34,9 +35,12 @@ export default function Navigation({ activeSection }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg">
-              PS
-            </span>
+            <button
+              onClick={() => handleNavClick('home')}
+              className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg"
+            >
+              Preveen S
+            </button>
           </div>
 
           <div className="hidden md:block">

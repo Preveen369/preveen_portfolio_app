@@ -4,11 +4,12 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import './App.css';
 
-const SECTIONS = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+const SECTIONS = ['home', 'about', 'skills', 'experience', 'projects', 'certifications', 'contact'];
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -51,6 +52,7 @@ function App() {
       <Skills />
       <Experience />
       <Projects />
+      <Certifications />
       <Contact />
     </div>
   );

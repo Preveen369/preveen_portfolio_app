@@ -9,7 +9,7 @@ export default function Experience() {
       location: 'Madurai',
       period: 'Dec 2023 - Jan 2024',
       description:
-        'Developed an end-to-end full-stack web application using MERN stack, with a responsive interface and client-side validation enhancing user experience.',
+        'Developed end-to-end full-stack web applications using MERN stack, with responsive interfaces & client-side validations enhancing UI/UX.',
       achievements: [
         'Built complete MERN stack application from scratch',
         'Implemented responsive design and client-side validation',
