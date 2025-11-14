@@ -18,8 +18,6 @@ export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
                   src="/images/My_Avatar.jpg" 
                   alt="Preveen S" 
                   className="w-full h-full object-cover rounded-full"
-                  loading="lazy"
-                  decoding="async"
                 />
               </div>
             </div>
