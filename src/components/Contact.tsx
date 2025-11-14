@@ -21,8 +21,8 @@ export default function Contact() {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Madurai, Tamil Nadu, India',
-      href: '#',
+      value: 'Kathakinaru, Madurai, Tamil Nadu, India',
+      href: 'https://maps.app.goo.gl/jQWYVVj4smXEk9go7',
     },
   ];
 
