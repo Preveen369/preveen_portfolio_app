@@ -4,7 +4,8 @@
 ![Tech](https://img.shields.io/badge/Frontend-React%2FTypeScript-orange.svg)
 ![Tech](https://img.shields.io/badge/Styling-Tailwind%20CSS-yellow.svg)
 ![UI](https://img.shields.io/badge/UI-shadcn/ui-emerald.svg)
-![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
+![License](https://img.shields.io/badge/License-MIT-red.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8f54341c-afc2-4c56-8ff4-8a731f78c88e/deploy-status)](https://app.netlify.com/projects/preveens-portfolio-app/deploys)
 
 Preveen Portfolio App is a personal web portfolio designed using react and vitejs to highlight skills, projects, and achievements. It serves as a digital resume and showcases for potential clients, collaborators, and employers. Built with modern technologies and deployed on Netlify for easy accessibility.
 
