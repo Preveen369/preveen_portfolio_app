@@ -15,7 +15,7 @@ export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
             <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-full p-2">
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-6xl font-bold text-blue-400 border border-blue-500/20 overflow-hidden">
                 <img 
-                  src="/images/My_Avatar.jpg" 
+                  src="/images/projects/My_Avatar.jpg" 
                   alt="Preveen S" 
                   className="w-full h-full object-cover rounded-full"
                 />
