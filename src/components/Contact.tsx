@@ -41,20 +41,20 @@ export default function Contact() {
     },
     {
       icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com/preveen369',
+      label: 'X',
+      href: 'https://x.com/preveenxp327207',
       color: 'hover:text-sky-400',
     },
     {
       icon: Facebook,
       label: 'Facebook',
-      href: 'https://facebook.com/preveen369',
+      href: 'https://facebook.com/',
       color: 'hover:text-blue-500',
     },
     {
       icon: Instagram,
       label: 'Instagram',
-      href: 'https://instagram.com/preveen369',
+      href: 'https://instagram.com/_preveen_s/',
       color: 'hover:text-pink-400',
     },
   ];
