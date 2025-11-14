@@ -12,7 +12,7 @@ export default function Projects() {
       stack: ['React.js', 'Node.js', 'Express', 'MongoDB'],
       github: 'https://github.com/Preveen369/EnlightenIt-Hub-App',
       demo: 'https://enlightenit-hub-app.onrender.com/',
-      image: 'url(./public/images/projects/blogging.png)',
+      image: 'url(/images/projects/blogging.png)',
       features: [
         'Secure user authentication and authorization',
         'Profile management with image uploads',
@@ -27,7 +27,7 @@ export default function Projects() {
       stack: ['Android Studio', 'Java', 'Firebase'],
       github: 'https://github.com/Preveen369/NammaPets-SBA',
       demo: 'https://drive.google.com/file/d/1gQ6X4wJ9jMhEXQ1hP9OGdxOSGhQyI94D/view?usp=sharing',
-      image: 'url(./public/images/projects/pets-bussiness.png)',
+      image: 'url(/images/projects/pets-bussiness.png)',
       features: [
         'List and browse pets catalog',
         'Secure authentication system',
@@ -43,7 +43,7 @@ export default function Projects() {
       stack: ['HTML', 'CSS', 'JavaScript', 'AI/ML', 'API Integration'],
       github: 'https://github.com/Preveen369/WanderWave',
       demo: 'https://preveen369.github.io/WanderWave/',
-      image: 'url(./public/images/projects/travel-chatbot.png)',
+      image: 'url(/images/projects/travel-chatbot.png)',
       features: [
         'AI-powered travel recommendations',
         'Interactive chat interface',
@@ -58,7 +58,7 @@ export default function Projects() {
       stack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'AI/ML'],
       github: 'https://github.com/Preveen369/Mini-Store-ERP',
       demo: 'https://mini-store-erp-app.onrender.com/',
-      image: 'url(/public/images/projects/mini-store-shop.png)',
+      image: 'url(/images/projects/mini-store-shop.png)',
       features: [
         'Inventory management system',
         'Sales and transaction tracking',
