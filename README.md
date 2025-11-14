@@ -66,6 +66,7 @@ preveen_portfolio_app/
 │   ├── assets/                  # Static assets
 │   ├── App.tsx                  # Main component
 │   └── main.tsx                 # Entry point
+│   # Configuration files
 ├── index.html, vite.config.ts, tailwind.config.js, tsconfig.json
 └── package.json, components.json, README.md
 ```
