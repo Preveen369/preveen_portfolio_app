@@ -1,26 +1,55 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 
 export default function Skills() {
   const skillCategories = [
     {
       title: 'Frontend Development',
-      skills: ['React.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive Design'],
+      skills: [
+        { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+        { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+        { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+        { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+        { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+        { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+        { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
+      ],
       color: 'from-blue-500 to-cyan-500',
     },
     {
       title: 'Backend Development',
-      skills: ['Node.js', 'Express.js', 'Java', 'RESTful APIs', 'JDBC', 'JSP'],
+      skills: [
+        { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+        { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
+        { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
+        { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+        { name: 'RESTful APIs', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+        { name: 'JDBC', icon: '/src/assets/icons/jdbc.png' },
+        { name: 'JSP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tomcat/tomcat-original.svg' },
+      ],
       color: 'from-green-500 to-emerald-500',
     },
     {
       title: 'Database & Tools',
-      skills: ['MongoDB', 'MySQL', 'Firebase', 'Git', 'GitHub', 'Android Studio'],
+      skills: [
+        { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+        { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+        { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg' },
+        { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+        { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
+        { name: 'Android Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg' },
+        { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg' },
+        { name: 'Generative AI', icon: '/src/assets/icons/openai.svg' },
+      ],
       color: 'from-purple-500 to-pink-500',
     },
     {
       title: 'Soft Skills',
-      skills: ['Problem Solving', 'Quick Learning', 'Team Collaboration', 'Agile Methodology'],
+      skills: [
+        { name: 'Problem Solving', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codepen/codepen-original.svg' },
+        { name: 'Quick Learning', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg' },
+        { name: 'Team Collaboration', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg' },
+        { name: 'Agile Methodology', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg' },
+      ],
       color: 'from-orange-500 to-red-500',
     },
   ];
@@ -41,7 +70,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="min-h-screen pt-20 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -49,29 +78,50 @@ export default function Skills() {
               Skills & Expertise
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full mb-4"></div>
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
+            Technical proficiencies and certifications that power my development capabilities
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className="bg-slate-800/30 border-slate-700 hover:border-blue-500/50 transition-all duration-300 group"
+              className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group"
             >
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <div className={`w-1 h-8 bg-gradient-to-b ${category.color} rounded-full mr-3`}></div>
                   <h3 className="text-xl font-semibold text-white">{category.title}</h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {category.skills.map((skill, idx) => (
-                    <Badge
+                    <div
                       key={idx}
-                      variant="secondary"
-                      className="bg-slate-700/50 text-slate-200 hover:bg-slate-700 border border-slate-600 hover:border-blue-500/50 transition-all duration-300"
+                      className="group flex flex-col items-center p-3 bg-slate-700/30 hover:bg-slate-700/50 border border-slate-600/30 hover:border-blue-500/50 rounded-lg transition-all duration-300 hover:scale-105"
                     >
-                      {skill}
-                    </Badge>
+                      <div className="w-12 h-12 mb-2 flex items-center justify-center">
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className={`w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 ${
+                            skill.name === 'GitHub' ? 'filter invert brightness-0 invert' : 
+                            skill.name === 'Express.js' ? 'bg-white rounded-lg p-1' :
+                            skill.name === 'Generative AI' ? 'filter invert brightness-0 invert' : ''
+                          }`}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            target.nextElementSibling!.textContent = skill.name.charAt(0).toUpperCase();
+                          }}
+                        />
+                        <div className="hidden w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-lg"></div>
+                      </div>
+                      <span className="text-xs text-slate-300 text-center font-medium leading-tight">
+                        {skill.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </CardContent>
@@ -89,7 +139,7 @@ export default function Skills() {
             {certifications.map((cert, index) => (
               <Card
                 key={index}
-                className="bg-slate-800/30 border-slate-700 hover:border-cyan-500/50 hover:bg-slate-800/50 transition-all duration-300 group"
+                className="bg-slate-800/40 border-slate-700/50 hover:border-cyan-500/50 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 group"
               >
                 <CardContent className="p-6">
                   <div className="h-2 w-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mb-4 group-hover:w-full transition-all duration-300"></div>

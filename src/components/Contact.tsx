@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send, Instagram, Facebook, Twitter } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -39,6 +39,24 @@ export default function Contact() {
       href: 'https://linkedin.com/in/preveen-s',
       color: 'hover:text-blue-400',
     },
+    {
+      icon: Twitter,
+      label: 'Twitter',
+      href: 'https://twitter.com/preveen369',
+      color: 'hover:text-sky-400',
+    },
+    {
+      icon: Facebook,
+      label: 'Facebook',
+      href: 'https://facebook.com/preveen369',
+      color: 'hover:text-blue-500',
+    },
+    {
+      icon: Instagram,
+      label: 'Instagram',
+      href: 'https://instagram.com/preveen369',
+      color: 'hover:text-pink-400',
+    },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -46,7 +64,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 bg-slate-900/50">
+    <section id="contact" className="min-h-screen pt-20 pb-16 px-4 bg-slate-900/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -54,9 +72,9 @@ export default function Contact() {
               Get In Touch
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full mb-4"></div>
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision
           </p>
         </div>
 
@@ -73,7 +91,7 @@ export default function Contact() {
               {contactInfo.map((item, index) => (
                 <Card
                   key={index}
-                  className="bg-slate-800/30 border-slate-700 hover:border-blue-500/50 transition-all duration-300 group"
+                  className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group"
                 >
                   <CardContent className="p-4">
                     <a
@@ -113,7 +131,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <Card className="bg-slate-800/30 border-slate-700">
+          <Card className="bg-slate-800/40 border-slate-700/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -121,7 +139,7 @@ export default function Contact() {
                   <Input
                     type="text"
                     placeholder="Your Name"
-                    className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors duration-300"
+                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
                     required
                   />
                 </div>
@@ -129,7 +147,7 @@ export default function Contact() {
                   <Input
                     type="email"
                     placeholder="Your Email"
-                    className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors duration-300"
+                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
                     required
                   />
                 </div>
@@ -137,7 +155,7 @@ export default function Contact() {
                   <Input
                     type="text"
                     placeholder="Subject"
-                    className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors duration-300"
+                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
                     required
                   />
                 </div>
@@ -145,13 +163,13 @@ export default function Contact() {
                   <Textarea
                     placeholder="Your Message"
                     rows={6}
-                    className="bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500 transition-colors duration-300 resize-none"
+                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300 resize-none"
                     required
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
                   size="lg"
                 >
                   <Send className="mr-2 h-5 w-5" />

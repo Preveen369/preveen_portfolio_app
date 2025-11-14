@@ -26,7 +26,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 bg-slate-900/50">
+    <section id="about" className="min-h-screen pt-20 pb-16 px-4 bg-slate-900/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -34,7 +34,10 @@ export default function About() {
               About Me
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full mb-4"></div>
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
+            Learn more about my background, education, and what drives my passion for development
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
@@ -56,7 +59,7 @@ export default function About() {
           </div>
 
           <div className="space-y-6">
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-blue-500/50 transition-all duration-300">
+            <Card className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Education</h3>
                 <div className="space-y-4">
@@ -73,7 +76,7 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-800/50 border-slate-700 hover:border-cyan-500/50 transition-all duration-300">
+            <Card className="bg-slate-800/40 border-slate-700/50 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Location</h3>
                 <p className="text-slate-300">Madurai, Tamil Nadu, India</p>
@@ -86,7 +89,7 @@ export default function About() {
           {highlights.map((item, index) => (
             <Card
               key={index}
-              className="bg-slate-800/30 border-slate-700 hover:border-blue-500/50 hover:bg-slate-800/50 transition-all duration-300 group"
+              className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group"
             >
               <CardContent className="p-6 text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">

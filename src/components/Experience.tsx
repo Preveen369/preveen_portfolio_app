@@ -41,7 +41,7 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 px-4 bg-slate-900/50">
+    <section id="experience" className="min-h-screen pt-20 pb-16 px-4 bg-slate-900/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -49,14 +49,17 @@ export default function Experience() {
               Experience
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full mb-4"></div>
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
+            Professional journey and notable achievements in software development
+          </p>
         </div>
 
         <div className="space-y-8 mb-16">
           {experiences.map((exp, index) => (
             <Card
               key={index}
-              className="bg-slate-800/30 border-slate-700 hover:border-blue-500/50 transition-all duration-300 group overflow-hidden"
+              className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group overflow-hidden"
             >
               <div className={`h-1 w-full bg-gradient-to-r ${exp.color}`}></div>
               <CardContent className="p-6 sm:p-8">
@@ -101,22 +104,56 @@ export default function Experience() {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-3xl font-bold text-center mb-8">
+          <h3 className="text-3xl font-bold text-center mb-12">
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Achievements
             </span>
           </h3>
-          <Card className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/30 hover:border-blue-500/60 transition-all duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-start gap-4">
-                <span className="text-4xl">{achievement.icon}</span>
-                <div>
-                  <h4 className="text-2xl font-bold text-white mb-2">{achievement.title}</h4>
-                  <p className="text-lg text-slate-300">{achievement.description}</p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="relative group bg-slate-800/40 border border-slate-700/50 hover:border-blue-500/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-gradient-to-br from-yellow-500/20 to-orange-500/20 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-4xl">🏆</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-2xl font-bold text-white mb-1 group-hover:text-blue-400 transition-colors duration-300">
+                      {achievement.title}
+                    </h4>
+                    <div className="h-1 w-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"></div>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
+                  {achievement.description}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="relative group bg-slate-800/40 border border-slate-700/50 hover:border-cyan-500/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-gradient-to-br from-cyan-500/20 to-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-4xl">⭐</span>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors duration-300">
+                      Recognition
+                    </h4>
+                    <div className="h-1 w-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+                  </div>
+                </div>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
+                  Passionate developer committed to building innovative solutions and continuously improving technical expertise through real-world projects.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
