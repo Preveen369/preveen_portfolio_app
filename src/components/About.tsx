@@ -69,8 +69,8 @@ export default function About() {
                     <p className="text-slate-400 text-sm">2022 - 2026 | CGPA: 8.52</p>
                   </div>
                   <div className="border-t border-slate-700 pt-4">
-                    <p className="text-slate-300">Senior Secondary: <span className="text-blue-400 font-medium">93%</span></p>
-                    <p className="text-slate-300">Secondary: <span className="text-blue-400 font-medium">94.8%</span></p>
+                    <p className="text-slate-300">Senior Secondary (CBSE Board): <span className="text-blue-400 font-medium">93%</span></p>
+                    <p className="text-slate-300">Secondary (CBSE Board): <span className="text-blue-400 font-medium">94.8%</span></p>
                   </div>
                 </div>
               </CardContent>
@@ -79,7 +79,7 @@ export default function About() {
             <Card className="bg-slate-800/40 border-slate-700/50 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Location</h3>
-                <p className="text-slate-300">Madurai, Tamil Nadu, India</p>
+                <p className="text-slate-300">Kathakinaru, Madurai, Tamil Nadu, India</p>
               </CardContent>
             </Card>
           </div>

@@ -1,10 +1,13 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Send, Instagram, Facebook, Twitter } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
+  const [showSuccess, setShowSuccess] = useState(false);
   const contactInfo = [
     {
       icon: Mail,
@@ -59,9 +62,46 @@ export default function Contact() {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
+  // Formspree integration
+  // Replace "meokerpd" with your Formspree form ID (e.g. "meokerpd")
+  const [state, handleFormSubmit] = useForm('meokerpd');
+
+  // Auto-reset form after 15 seconds on success
+  useEffect(() => {
+    if (state.succeeded) {
+      setShowSuccess(true);
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 15000);
+      return () => clearTimeout(timer);
+    }
+  }, [state.succeeded]);
+
+  // Success message component with countdown
+  function SuccessMessage() {
+    const [countdown, setCountdown] = useState(15);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            clearInterval(interval);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }, []);
+
+    return (
+      <div className="p-6 bg-gradient-to-br from-green-900/30 to-emerald-900/20 rounded border border-green-500/30">
+        <p className="text-white font-medium text-lg">Thanks for your message! I'll get back to you soon.</p>
+        <p className="text-green-400 text-sm mt-3">Form will reset in {countdown} seconds...</p>
+      </div>
+    );
+  }
 
   return (
     <section id="contact" className="min-h-screen pt-20 pb-16 px-4 bg-slate-900/30">
@@ -134,48 +174,65 @@ export default function Contact() {
           <Card className="bg-slate-800/40 border-slate-700/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
             <CardContent className="p-6">
               <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Input
-                    type="text"
-                    placeholder="Your Name"
-                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
-                    required
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
-                    required
-                  />
-                </div>
-                <div>
-                  <Input
-                    type="text"
-                    placeholder="Subject"
-                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
-                    required
-                  />
-                </div>
-                <div>
-                  <Textarea
-                    placeholder="Your Message"
-                    rows={6}
-                    className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300 resize-none"
-                    required
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
-                  size="lg"
-                >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </Button>
-              </form>
+              {showSuccess && state.succeeded ? (
+                <SuccessMessage />
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-4">
+                  <div>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Your Name"
+                      className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
+                      required
+                    />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} />
+                  </div>
+                  <div>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
+                      required
+                    />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
+                  </div>
+                  <div>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      placeholder="Subject"
+                      className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300"
+                      required
+                    />
+                    <ValidationError prefix="Subject" field="subject" errors={state.errors} />
+                  </div>
+                  <div>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Your Message"
+                      rows={8}
+                      className="bg-slate-900/50 border-slate-700/50 text-white placeholder:text-slate-500 focus:border-blue-500/50 focus:ring-blue-500/20 transition-colors duration-300 resize-none"
+                      required
+                    />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} />
+                  </div>
+                  <Button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
+                    size="lg"
+                  >
+                    <Send className="mr-2 h-5 w-5" />
+                    {state.submitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </form>
+              )}
             </CardContent>
           </Card>
         </div>
