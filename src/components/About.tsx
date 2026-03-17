@@ -42,20 +42,27 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
-            <p className="text-lg text-slate-300 leading-relaxed">
-              I'm a <span className="text-blue-400 font-semibold">passionate Software Engineer</span> specializing in
-              problem-solving and full-stack development, with a strong commitment to leveraging the latest technologies.
-            </p>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Currently pursuing <span className="text-blue-400 font-semibold">B.Tech in Information Technology</span> at
-              Velammal College of Engineering and Technology with a CGPA of 8.52, I combine academic excellence with
-              practical development experience.
-            </p>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Skilled at crafting innovative and impactful solutions, I thrive in agile and dynamic environments.
-              My recent achievement includes clearing the first round of Zoho Cliqtrix 2024 by building a
-              travel-based recommendation chatbot <span className="text-blue-400 font-semibold">"WanderWave"</span>.
-            </p>
+              <p className="text-lg text-slate-300 leading-relaxed">
+                I'm a <span className="text-blue-400 font-semibold">passionate Software Engineer</span> specializing in
+                problem-solving and full-stack development, with a strong commitment to leveraging the latest technologies.
+                I am currently evolving into a <span className="text-blue-400 font-semibold">Full-Stack + AI Engineer</span>, 
+                focusing on building intelligent, real-world applications.
+              </p>
+
+              <p className="text-lg text-slate-300 leading-relaxed">
+                Currently pursuing <span className="text-blue-400 font-semibold">B.Tech in Information Technology</span> at
+                Velammal College of Engineering and Technology with a CGPA of 8.43, I combine academic excellence with
+                practical development experience.
+              </p>
+
+              <p className="text-lg text-slate-300 leading-relaxed">
+                Skilled at crafting innovative and impactful solutions, I thrive in agile and dynamic environments.
+                My recent achievement includes clearing the first round of 
+                <span className="text-blue-400 font-semibold"> Zoho Cliqtrix 2024</span> by building a travel-based 
+                recommendation chatbot <span className="text-blue-400 font-semibold">"WanderWave"</span>. 
+                I am actively exploring AI, Machine Learning, and Large Language Models (LLMs) to enhance modern 
+                applications with intelligent capabilities.
+              </p>
           </div>
 
           <div className="space-y-6">
@@ -66,7 +73,7 @@ export default function About() {
                   <div>
                     <p className="text-blue-400 font-medium">B.Tech Information Technology</p>
                     <p className="text-slate-300">Velammal College of Engineering and Technology</p>
-                    <p className="text-slate-400 text-sm">2022 - 2026 | CGPA: 8.52</p>
+                    <p className="text-slate-400 text-sm">2022 - 2026 | CGPA: 8.43</p>
                   </div>
                   <div className="border-t border-slate-700 pt-4">
                     <p className="text-slate-300">Senior Secondary (CBSE Board): <span className="text-blue-400 font-medium">93%</span></p>
