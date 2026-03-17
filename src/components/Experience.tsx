@@ -1,5 +1,7 @@
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { sectionReveal, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 export default function Experience() {
   const experiences = [
@@ -43,7 +45,13 @@ export default function Experience() {
   return (
     <section id="experience" className="min-h-screen pt-20 pb-16 px-4 bg-slate-900/30">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Experience
@@ -53,14 +61,20 @@ export default function Experience() {
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
             Professional journey and notable achievements in software development
           </p>
-        </div>
+        </motion.div>
 
-        <div className="space-y-8 mb-16">
+        <motion.div
+          className="space-y-8 mb-16"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {experiences.map((exp, index) => (
-            <Card
-              key={index}
-              className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group overflow-hidden"
-            >
+            <motion.div key={index} variants={staggerItem}>
+              <Card
+                className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group overflow-hidden"
+              >
               <div className={`h-1 w-full bg-gradient-to-r ${exp.color}`}></div>
               <CardContent className="p-6 sm:p-8">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
@@ -99,18 +113,26 @@ export default function Experience() {
                   </ul>
                 </div>
               </CardContent>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mt-16">
-          <h3 className="text-3xl font-bold text-center mb-12">
+        <motion.div
+          className="mt-16"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.h3 className="text-3xl font-bold text-center mb-12" variants={sectionReveal}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Achievements
             </span>
-          </h3>
+          </motion.h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="relative group bg-slate-800/40 border border-slate-700/50 hover:border-blue-500/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
+            <motion.div variants={staggerItem}>
+              <Card className="relative group bg-slate-800/40 border border-slate-700/50 hover:border-blue-500/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
@@ -130,9 +152,11 @@ export default function Experience() {
                   {achievement.description}
                 </p>
               </CardContent>
-            </Card>
+              </Card>
+            </motion.div>
 
-            <Card className="relative group bg-slate-800/40 border border-slate-700/50 hover:border-cyan-500/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
+            <motion.div variants={staggerItem}>
+              <Card className="relative group bg-slate-800/40 border border-slate-700/50 hover:border-cyan-500/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <CardContent className="p-6 sm:p-8">
                 <div className="flex items-start gap-4 mb-4">
@@ -152,9 +176,10 @@ export default function Experience() {
                   Passionate developer committed to building innovative solutions and continuously improving technical expertise through real-world projects.
                 </p>
               </CardContent>
-            </Card>
+              </Card>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

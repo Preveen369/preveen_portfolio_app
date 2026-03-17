@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useForm, ValidationError } from '@formspree/react';
+import { motion } from 'framer-motion';
+import { sectionReveal, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 export default function Contact() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -106,7 +108,13 @@ export default function Contact() {
   return (
     <section id="contact" className="min-h-screen pt-20 pb-16 px-4 bg-slate-900/30">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Get In Touch
@@ -116,10 +124,16 @@ export default function Contact() {
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
-          <div className="space-y-6">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-8 mb-12"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.div className="space-y-6" variants={staggerItem}>
             <div>
               <h3 className="text-2xl font-bold text-white mb-4">Contact Information</h3>
               <p className="text-slate-400 mb-6">
@@ -169,15 +183,16 @@ export default function Contact() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <Card className="bg-slate-800/40 border-slate-700/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
-              {showSuccess && state.succeeded ? (
-                <SuccessMessage />
-              ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-4">
+          <motion.div variants={staggerItem}>
+            <Card className="bg-slate-800/40 border-slate-700/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
+                {showSuccess && state.succeeded ? (
+                  <SuccessMessage />
+                ) : (
+                  <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div>
                     <Input
                       id="name"
@@ -222,29 +237,36 @@ export default function Contact() {
                     />
                     <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </div>
-                  <Button
-                    type="submit"
-                    disabled={state.submitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
-                    size="lg"
-                  >
-                    <Send className="mr-2 h-5 w-5" />
-                    {state.submitting ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+                    <Button
+                      type="submit"
+                      disabled={state.submitting}
+                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
+                      size="lg"
+                    >
+                      <Send className="mr-2 h-5 w-5" />
+                      {state.submitting ? 'Sending...' : 'Send Message'}
+                    </Button>
+                  </form>
+                )}
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
 
-        <div className="text-center pt-12 border-t border-slate-800">
+        <motion.div
+          className="text-center pt-12 border-t border-slate-800"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <p className="text-slate-400">
             Designed & Built by <span className="text-blue-400 font-semibold">Preveen S</span>
           </p>
           <p className="text-slate-500 text-sm mt-2">
             &copy; {new Date().getFullYear()} All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

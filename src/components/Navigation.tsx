@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface NavigationProps {
   activeSection: string;
@@ -72,25 +73,37 @@ export default function Navigation({ activeSection }: NavigationProps) {
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-gradient-to-b from-slate-900/95 to-slate-950/95 backdrop-blur-lg border-t border-blue-500/10">
-          <div className="px-2 pt-2 pb-3 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-150 border ${
-                  activeSection === item.id
-                    ? 'text-white bg-gradient-to-r from-blue-600/40 to-cyan-600/40 border-blue-500/50 shadow-lg shadow-blue-500/30 scale-[1.02]'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50 border-transparent hover:border-blue-500/30 hover:shadow-md hover:shadow-blue-500/10 active:scale-95'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="md:hidden bg-gradient-to-b from-slate-900/95 to-slate-950/95 backdrop-blur-lg border-t border-blue-500/10"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="px-2 pt-2 pb-3 space-y-2">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all duration-150 border ${
+                    activeSection === item.id
+                      ? 'text-white bg-gradient-to-r from-blue-600/40 to-cyan-600/40 border-blue-500/50 shadow-lg shadow-blue-500/30 scale-[1.02]'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50 border-transparent hover:border-blue-500/30 hover:shadow-md hover:shadow-blue-500/10 active:scale-95'
+                  }`}
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.18, delay: index * 0.03 }}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

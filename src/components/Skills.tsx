@@ -1,4 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { sectionReveal, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 export default function Skills() {
   const skillCategories = [
@@ -59,7 +61,13 @@ export default function Skills() {
   return (
     <section id="skills" className="min-h-screen pt-20 pb-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Skills & Expertise
@@ -69,52 +77,59 @@ export default function Skills() {
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
             Technical proficiencies and certifications that power my development capabilities
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <motion.div
+          className="grid md:grid-cols-2 gap-6 mb-16"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {skillCategories.map((category, index) => (
-            <Card
-              key={index}
-              className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className={`w-1 h-8 bg-gradient-to-b ${category.color} rounded-full mr-3`}></div>
-                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
-                </div>
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {category.skills.map((skill, idx) => (
-                    <div
-                      key={idx}
-                      className="group flex flex-col items-center p-3 bg-slate-700/30 hover:bg-slate-700/50 border border-slate-600/30 hover:border-blue-500/50 rounded-lg transition-all duration-300 hover:scale-105"
-                    >
-                      <div className="w-12 h-12 mb-2 flex items-center justify-center">
-                        <img
-                          src={skill.icon}
-                          alt={skill.name}
-                          className={`w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 ${
-                            skill.name === 'GitHub' ? 'filter invert brightness-0 invert' : 
-                            skill.name === 'Express.js' ? 'bg-white rounded-lg p-1' :
-                            skill.name === 'Generative AI' ? 'filter invert brightness-0 invert' : ''
-                          }`}
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            target.nextElementSibling!.textContent = skill.name.charAt(0).toUpperCase();
-                          }}
-                        />
-                        <div className="hidden w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-lg"></div>
+            <motion.div key={index} variants={staggerItem}>
+              <Card
+                className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group"
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className={`w-1 h-8 bg-gradient-to-b ${category.color} rounded-full mr-3`}></div>
+                    <h3 className="text-xl font-semibold text-white">{category.title}</h3>
+                  </div>
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {category.skills.map((skill, idx) => (
+                      <div
+                        key={idx}
+                        className="group flex flex-col items-center p-3 bg-slate-700/30 hover:bg-slate-700/50 border border-slate-600/30 hover:border-blue-500/50 rounded-lg transition-all duration-300 hover:scale-105"
+                      >
+                        <div className="w-12 h-12 mb-2 flex items-center justify-center">
+                          <img
+                            src={skill.icon}
+                            alt={skill.name}
+                            className={`w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300 ${
+                              skill.name === 'GitHub' ? 'filter invert brightness-0 invert' : 
+                              skill.name === 'Express.js' ? 'bg-white rounded-lg p-1' :
+                              skill.name === 'Generative AI' ? 'filter invert brightness-0 invert' : ''
+                            }`}
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              target.nextElementSibling!.textContent = skill.name.charAt(0).toUpperCase();
+                            }}
+                          />
+                          <div className="hidden w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-lg"></div>
+                        </div>
+                        <span className="text-xs text-slate-300 text-center font-medium leading-tight">
+                          {skill.name}
+                        </span>
                       </div>
-                      <span className="text-xs text-slate-300 text-center font-medium leading-tight">
-                        {skill.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

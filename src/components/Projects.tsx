@@ -2,6 +2,8 @@ import { ExternalLink, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
+import { sectionReveal, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 export default function Projects() {
   const projects = [
@@ -71,7 +73,13 @@ export default function Projects() {
   return (
     <section id="projects" className="min-h-screen pt-20 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
+        <motion.div
+          className="text-center mb-16"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Featured Projects
@@ -81,14 +89,18 @@ export default function Projects() {
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
             A collection of projects showcasing my skills in full-stack development, mobile apps, and innovative solutions
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="bg-slate-800/40 border border-slate-700/50 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-200 overflow-hidden group"
-            >
+            <motion.div key={index} variants={staggerItem}>
+              <Card className="bg-slate-800/40 border border-slate-700/50 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-200 overflow-hidden group">
               <div 
                 className="h-48 flex items-center justify-center relative overflow-hidden bg-cover bg-center"
                 style={{ backgroundImage: project.image, filter: 'blur(0.25px)' }}
@@ -144,11 +156,18 @@ export default function Projects() {
                   </Button>
                 </div>
               </CardContent>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="text-center mt-16 animate-fade-in-up animation-delay-200">
+        <motion.div
+          className="text-center mt-16"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <Button
             onClick={() => window.open('https://github.com/Preveen369', '_blank')}
             size="lg"
@@ -158,7 +177,7 @@ export default function Projects() {
             <Github className="mr-2 h-5 w-5" />
             View More on GitHub
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

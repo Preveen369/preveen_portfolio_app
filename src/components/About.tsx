@@ -1,5 +1,7 @@
 import { Code2, Rocket, Users, Zap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { sectionReveal, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 export default function About() {
   const highlights = [
@@ -28,7 +30,13 @@ export default function About() {
   return (
     <section id="about" className="min-h-screen pt-20 pb-16 px-4 bg-slate-900/30">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               About Me
@@ -38,10 +46,16 @@ export default function About() {
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
             Learn more about my background, education, and what drives my passion for development
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
+        <motion.div
+          className="grid md:grid-cols-2 gap-12 items-center mb-16"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.div className="space-y-6" variants={staggerItem}>
               <p className="text-lg text-slate-300 leading-relaxed">
                 I'm a <span className="text-blue-400 font-semibold">passionate Software Engineer</span> specializing in
                 problem-solving and full-stack development, with a strong commitment to leveraging the latest technologies.
@@ -63,9 +77,9 @@ export default function About() {
                 I am actively exploring AI, Machine Learning, and Large Language Models (LLMs) to enhance modern 
                 applications with intelligent capabilities.
               </p>
-          </div>
+          </motion.div>
 
-          <div className="space-y-6">
+          <motion.div className="space-y-6" variants={staggerItem}>
             <Card className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-white mb-4">Education</h3>
@@ -89,25 +103,32 @@ export default function About() {
                 <p className="text-slate-300">Kathakinaru, Madurai, Tamil Nadu, India</p>
               </CardContent>
             </Card>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {highlights.map((item, index) => (
-            <Card
-              key={index}
-              className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group"
-            >
-              <CardContent className="p-6 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="w-8 h-8 text-blue-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-400">{item.description}</p>
-              </CardContent>
-            </Card>
+            <motion.div key={index} variants={staggerItem}>
+              <Card
+                className="bg-slate-800/40 border-slate-700/50 hover:border-blue-500/50 hover:bg-slate-800/60 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group"
+              >
+                <CardContent className="p-6 text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <item.icon className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-slate-400">{item.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

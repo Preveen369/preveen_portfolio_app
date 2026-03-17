@@ -1,5 +1,7 @@
 import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 interface HeroProps {
   onScrollClick: () => void;
@@ -9,8 +11,14 @@ interface HeroProps {
 export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 pb-12 relative">
-      <div className="max-w-6xl mx-auto text-center">
-        <div className="mb-1 animate-fade-in">
+      <motion.div
+        className="max-w-6xl mx-auto text-center"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
+      >
+        <motion.div className="mb-1" variants={staggerItem}>
           <div className="inline-block p-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mb-5 shadow-lg shadow-blue-500/30">
             <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-full p-2">
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-6xl font-bold text-blue-400 border border-blue-500/20 overflow-hidden">
@@ -22,24 +30,24 @@ export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 animate-fade-in-up">
+        <motion.h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6" variants={staggerItem}>
           <span className="bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent drop-shadow-2xl">
             Preveen S
           </span>
-        </h1>
+        </motion.h1>
 
-        <div className="mb-8 animate-fade-in-up animation-delay-200">
+        <motion.div className="mb-8" variants={staggerItem}>
           <p className="text-2xl sm:text-3xl md:text-4xl font-semibold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
             Software Developer
           </p>
           <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Full-Stack Developer crafting innovative solutions with MERN stack and modern software technologies
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-7 animate-fade-in-up animation-delay-400">
+        <motion.div className="flex flex-wrap items-center justify-center gap-4 mb-7" variants={staggerItem}>
           <Button
             onClick={() => window.open('https://linkedin.com/in/preveen-s', '_blank')}
             size="lg"
@@ -58,9 +66,9 @@ export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
             <Github className="mr-2 h-5 w-5" />
             View GitHub
           </Button>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center justify-center animate-fade-in-up animation-delay-600">
+        <motion.div className="flex items-center justify-center" variants={staggerItem}>
           <div className="bg-gradient-to-r from-slate-800/40 to-slate-900/40 backdrop-blur-sm border border-blue-500/20 rounded-lg px-6 py-4 max-w-2xl">
             <p className="text-slate-300 text-lg font-medium italic text-center leading-relaxed">
               "Code is like humor. When you have to explain it, it's{' '}
@@ -71,16 +79,24 @@ export default function Hero({ onScrollClick, isLastSection }: HeroProps) {
             </p>
             <p className="text-slate-500 text-sm text-center mt-2">- Cory House</p>
           </div>
-        </div>
+        </motion.div>
 
-        <button
+        <motion.button
           onClick={onScrollClick}
-          className="fixed bottom-12 right-8 animate-bounce text-slate-400 hover:text-blue-400 transition-all duration-200 p-3 rounded-full hover:bg-slate-800/40 hover:shadow-lg hover:shadow-blue-500/20 active:scale-95 group z-40"
+          className="fixed bottom-12 right-8 text-slate-400 hover:text-blue-400 transition-all duration-200 p-3 rounded-full hover:bg-slate-800/40 hover:shadow-lg hover:shadow-blue-500/20 active:scale-95 group z-40"
           aria-label={isLastSection ? 'Scroll to top' : 'Scroll to next section'}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: [0, -8, 0] }}
+          transition={{
+            opacity: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+            y: { duration: 1.8, repeat: Infinity, ease: 'easeInOut' },
+          }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
         >
           <ArrowDown size={32} className={`group-hover:scale-110 transition-transform duration-200 ${isLastSection ? 'rotate-180' : ''}`} />
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
     </section>
   );
 }

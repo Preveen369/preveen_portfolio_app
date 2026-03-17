@@ -1,4 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { sectionReveal, staggerContainer, staggerItem, viewportOnce } from '@/lib/motion';
 
 export default function Certifications() {
   const certifications = [
@@ -31,7 +33,13 @@ export default function Certifications() {
   return (
     <section id="certifications" className="min-h-screen pt-20 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
+        <motion.div
+          className="text-center mb-16"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Certifications
@@ -41,14 +49,20 @@ export default function Certifications() {
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
             Professional certifications demonstrating my commitment to continuous learning and expertise
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {certifications.map((cert, index) => (
-            <Card 
-              key={index}
-              className="relative group bg-slate-800/40 border border-slate-700/50 overflow-hidden transition-all duration-300 hover:shadow-2xl"
-            >
+            <motion.div key={index} variants={staggerItem}>
+              <Card 
+                className="relative group bg-slate-800/40 border border-slate-700/50 overflow-hidden transition-all duration-300 hover:shadow-2xl"
+              >
               <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${cert.borderGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
               
               <CardContent className="p-6 sm:p-8">
@@ -73,15 +87,22 @@ export default function Certifications() {
                   </p>
                 </div>
               </CardContent>
-            </Card>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="mt-16 text-center">
+        <motion.div
+          className="mt-16 text-center"
+          variants={sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <p className="text-slate-400 max-w-2xl mx-auto text-base">
             I'm committed to continuous professional development and regularly pursue certifications to stay updated with the latest technologies and best practices in software development.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
