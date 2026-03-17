@@ -165,7 +165,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For queries or suggestions:
 
 - 📩 Email: [spreveen123@gmail.com](mailto:spreveen123@gmail.com)
-- 💼 LinkedIn: [www.linkedin.com/in/preveen-s-17250529b/](https://www.linkedin.com/in/preveen-s-17250529b/)
+- 💼 LinkedIn: [www.linkedin.com/in/preveen-s](https://www.linkedin.com/in/preveen-s)
 - 🐙 GitHub: [github.com/Preveen369](https://github.com/Preveen369)
 
 ---
